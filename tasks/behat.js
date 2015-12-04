@@ -6,22 +6,22 @@ var config = Elixir.config;
 
 /*
  |----------------------------------------------------------------
- | PHPSpec Testing
+ | Behat Testing
  |----------------------------------------------------------------
  |
- | This task will trigger your entire PHPSpec test suite and it
+ | This task will trigger your entire Behat test suite and it
  | will show notifications indicating the success or failure
  | of that test suite. It's works great with the tdd task.
  |
  */
 
-Elixir.extend('phpSpec', function(src, options) {
+Elixir.extend('behat', function(src, options) {
     runTests({
-        name: 'phpSpec',
-        binary: 'phpspec',
-        category: 'tdd',
-        src: src || (config.testing.phpSpec.path + '/**/*Spec.php'),
-        plugin: Elixir.Plugins.phpspec,
-        pluginOptions: options || config.testing.phpSpec.options
+        name: 'behat',
+        binary: 'behat',
+        category: 'bdd',
+        src: src || (config.testing.behat.path + '/**/*.feature'),
+        plugin: Elixir.Plugins.behat,
+        pluginOptions: options || config.testing.behat.options
     });
 });

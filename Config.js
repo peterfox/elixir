@@ -389,6 +389,27 @@ var config = {
                 verbose: 'v',
                 notify: true
             }
+        },
+
+        /*
+         |----------------------------------------------------------------
+         | Behat Autotesting
+         |----------------------------------------------------------------
+         |
+         | Want to automatically trigger your Behat tests. Not a prob!
+         | This object stores the defaults for the path to your specs
+         | folder, as well as any "gulp-behat" specific options.
+         |
+         */
+
+        behat: {
+            path: 'features',
+
+            // https://www.npmjs.com/package/gulp-behat#api
+            options: {
+                verbose: 'v',
+                notify: true
+            }
         }
     },
 

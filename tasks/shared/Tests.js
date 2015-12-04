@@ -5,8 +5,8 @@ var notify = new Elixir.Notification();
 
 
 module.exports = function(options) {
-    new Elixir.Task(options.name, function() {
-        this.log(options.src);
+     new Elixir.Task(options.name, function() {
+        this.log(options.type + ": " + options.src);
 
         return (
             gulp
@@ -20,7 +20,7 @@ module.exports = function(options) {
                 .pipe(notify.forPassedTests(options.name))
         );
     })
-        .watch(options.src, 'tdd')
-        .watch(Elixir.config.appPath + '/**/*.php', 'tdd')
-        .watch('./resources/views/**/*.php', 'tdd')
+        .watch(options.src, options.category)
+        .watch(Elixir.config.appPath + '/**/*.php', options.category)
+        .watch('./resources/views/**/*.php', options.category)
 };
