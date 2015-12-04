@@ -10,17 +10,17 @@ module.exports = function(options) {
 
         return (
             gulp
-            .src(options.src)
-            .pipe(options.plugin('', options.pluginOptions))
-            .on('error', function(e) {
-                notify.forFailedTests(e, options.name);
+                .src(options.src)
+                .pipe(options.plugin(Elixir.config.phpBinPath + '/' + options.binary, options.pluginOptions))
+                .on('error', function(e) {
+                    notify.forFailedTests(e, options.name);
 
-                this.emit('end');
-            })
-            .pipe(notify.forPassedTests(options.name))
+                    this.emit('end');
+                })
+                .pipe(notify.forPassedTests(options.name))
         );
     })
-    .watch(options.src, 'tdd')
-    .watch(Elixir.config.appPath + '/**/*.php', 'tdd')
-    .watch('./resources/views/**/*.php', 'tdd')
+        .watch(options.src, 'tdd')
+        .watch(Elixir.config.appPath + '/**/*.php', 'tdd')
+        .watch('./resources/views/**/*.php', 'tdd')
 };

@@ -18,6 +18,7 @@ var config = Elixir.config;
 Elixir.extend('phpUnit', function(src, options) {
     runTests({
         name: 'phpUnit',
+        binary: 'phpunit',
         src: src || (config.testing.phpUnit.path + '/**/*Test.php'),
         plugin: Elixir.Plugins.phpunit,
         pluginOptions: options || config.testing.phpUnit.options

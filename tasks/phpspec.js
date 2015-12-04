@@ -18,6 +18,7 @@ var config = Elixir.config;
 Elixir.extend('phpSpec', function(src, options) {
     runTests({
         name: 'phpSpec',
+        binary: 'phpspec',
         src: src || (config.testing.phpSpec.path + '/**/*Spec.php'),
         plugin: Elixir.Plugins.phpspec,
         pluginOptions: options || config.testing.phpSpec.options
