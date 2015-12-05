@@ -6,7 +6,7 @@ var notify = new Elixir.Notification();
 
 module.exports = function(options) {
      new Elixir.Task(options.name, function() {
-        this.log(options.type + ": " + options.src);
+        this.log(options.category + ": " + options.src);
 
         return (
             gulp
