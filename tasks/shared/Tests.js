@@ -22,5 +22,5 @@ module.exports = function(options) {
     })
         .watch(options.src, options.category)
         .watch(Elixir.config.appPath + '/**/*.php', options.category)
-        .watch('./resources/views/**/*.php', options.category)
+        .watch(Elixir.config.viewPath +'/**/*.php', options.category)
 };
